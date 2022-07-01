@@ -1,0 +1,17 @@
+apiVersion: multicloud.aether.io/v1alpha1
+kind: Cluster
+metadata:
+  name: plant1
+spec:
+  id: plant1
+  parameters:
+    locationConstraint: us-east1    
+    nodes:
+      count: 3
+      size: small
+  compositionSelector:
+    matchLabels:
+      type: kubernetes
+      provider: aws         
+  writeConnectionSecretToRef:
+    name: plant1-kubeconfig
